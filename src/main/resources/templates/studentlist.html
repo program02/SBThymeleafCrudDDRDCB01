@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+</head>
+<body>
+<a href="/students/add" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2"> Add Student</i></a>
+	<h1>Empty Page</h1>
+	<div>
+		<table class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Phone No</th>
+					<th>Country</th>
+					<th>Gender</th>
+					<th>CSS</th>
+					<th>Html</th>
+					<th>JS</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="student : ${students}">
+					<td th:text="${student.id}"></td>
+					<td th:text="${student.name}"></td>
+					<td th:text="${student.email}"></td>
+					<td th:text="${student.phone}"></td>
+					<td th:text="${student.country}"></td>
+					<td th:text="${student.gender}"></td>
+					<td th:text="${student.skcss}"></td>
+					<td th:text="${student.skhtml}"></td>
+					<td th:text="${student.skjs}"></td>
+					<td><a th:href="@{/students/edit/{id}(id=${student.id})}" class="btn btn-primary"><i class="fa fa-cog fa-spin fa-lg fa-fw"></i></a></td> 
+					
+					
+					<td><a th:href="@{/students/delete/{id}(id=${student.id})}" class="btn btn-danger"><i class="fa fa-spinner fa-spin fa-lg fa-fw ml-2"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
